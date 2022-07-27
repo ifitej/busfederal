@@ -28,3 +28,8 @@ El BUS Federal de Justicia fue concebido para integracion e intercambio de docum
 - Colegios Profesionales o entidades no gubernamentales que participen directa o indirectamente del proceso judicial.
 - Empresas privadas que participen directa o indirectamente del proceso judicial.
 
+### Que requisitos debo cumplir ?
+
+- Si representas a un Poder Judicial miembro de la Junta Federal de Cortes y Superiores Tribunales de Justicia que adhirio al convenio de Oficios Ley Interjurisdiccionales podes integrar directamente. Solamente tenes que enviar un mail a xxxxx@xxxx.com solicitando las credenciales de acceso a la API de Integracion.
+- Si perteneces a un organismo publico o entidad no gubernamental (Colegio Profesional) por favor completa este formulario en linea asi coordinamos una reunion y definimos los alcances de la integracion y te aprovisionamos las credenciales para acceder a la API de integración.
+- Si perteneces a una empresa Privada por favor completa este formulario en linea asi coordinamos una reunion y definimos los alcances de la integracion y te aprovisionamos las credenciales para acceder a la API de integración.
