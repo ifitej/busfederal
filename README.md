@@ -33,3 +33,17 @@ El BUS Federal de Justicia fue concebido para integracion e intercambio de docum
 - Si representas a un Poder Judicial miembro de la Junta Federal de Cortes y Superiores Tribunales de Justicia que adhirio al convenio de Oficios Ley Interjurisdiccionales podes integrar directamente. Solamente tenes que enviar un mail a xxxxx@xxxx.com solicitando las credenciales de acceso a la API de Integracion.
 - Si perteneces a un organismo publico o entidad no gubernamental (Colegio Profesional) por favor completa este formulario en linea asi coordinamos una reunion y definimos los alcances de la integracion y te aprovisionamos las credenciales para acceder a la API de integración.
 - Si perteneces a una empresa Privada por favor completa este formulario en linea asi coordinamos una reunion y definimos los alcances de la integracion y te aprovisionamos las credenciales para acceder a la API de integración.
+
+### Que hay en este repositorio ?
+
+En este repositorio vas a poder descargar las librerias de integracion con el BUS Federal de Justicia y codigo de ejemplo sobre como integrarlas a tu sistema de gestion. Actualmente solo tenemos librerias de integracion para C# pero proximamente tendremos disponibles librerias para JAVA, PHP, Python y NodeJS. Hasta tanto tengamos disponibles todas las librerias y si no utilizas C#, podes integrar accediendo directamente a la API REST del BUS.
+
+Para eso tenemos disponible un ambiente de SandBox pensado y desplegado para que todos los interesados puedan desarrollar y probar sus integraciones.
+
+### Como accedo al sandbox del BUS Federal ?
+
+Una vez que hayas gestionado las credenciales de acceso podes conectarte a la API de integracion en esta URL:  https://api-borde-qa.bus-justicia.org.ar y tambien podes importar las deficiones de OpenAPI desde esta URL https://api-borde-qa.bus-justicia.org.ar/swagger/v1/swagger.json
+
+Desde la API de integracion vas a poder acceder a los metodos para la gestion de dependencias de tu organizacion (Altas, Bajas y Modificaciones), envio y recepcion de documentos electronicos y descarga del comprobante de la transaccion realizada.
+
+El organismo principal lo definimos desde el backend del BUS como parte del aprovisionamiento de credenciales.
