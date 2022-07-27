@@ -1,0 +1,55 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>1.1.2.22</Version>
+	<AssemblyVersion>1.1.2.22</AssemblyVersion>
+	<FileVersion>1.1.2.22</FileVersion>    
+	<Authors>Bogliacino Mauricio</Authors>
+    <Company>Poder Judicial del Chubut</Company>
+    <RepositoryUrl>http://gitlab.bus-justicia.org.ar/gperez/librerias.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Description>Bus Federal de Justicia. Api para el intercambio de documentos electronicos</Description>
+    <PackageTags>busjusticia, busfederal, busjusticiaborde</PackageTags>
+    <PackageIcon>logo.png</PackageIcon>
+    <PackageIconUrl />
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ApiHelper.cs" />
+    <Compile Remove="BordeException.cs" />
+    <Compile Remove="ConfigureEventArg.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\logo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BF.Borde.Models" Version="1.1.2.12" />
+    <PackageReference Include="BF.Utils" Version="1.1.1.3" />
+    <PackageReference Include="IdentityModel" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="6.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="System.Net.Http.Json" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BF.ApiClientHelper\BF.ApiClientHelper.csproj" />
+    <ProjectReference Include="..\BF.OpenIDConnectClient\BF.OpenIDConnectClient.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>

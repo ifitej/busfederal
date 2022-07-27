@@ -1,0 +1,14 @@
+temp
+.vs
+**/bin
+**/obj
+*.zip
+*.pdb
+*.suo
+*.scc
+*.cache
+*.suo
+*.rar
+*.user
+Thumbs.db
+packages
