@@ -1,14 +1,14 @@
 ![enter image description here](https://www.bus-justicia.org.ar/images/iconos/logo-busjus.svg#joomlaImage://local-images/iconos/logo-busjus.svg?width=0&height=0)
-# BUS Federal de Justicia
-## Librerias de integracion BUS Federal de Justicia
 
-### ¿Que es Bus Federal de Justicia?
+# Librerias de integracion BUS Federal de Justicia
+
+## ¿Que es Bus Federal de Justicia?
 
 Es una plataforma estándar digital entre los organismos judiciales, entidades públicas y privadas que permita interoperar en todos los trámites. Permite integrar aplicaciones y procesos para organismos públicos y privados en su gestión digital con los poderes judiciales del país.
 
 Generado por la Junta Federal de Poderes Judiciales desde el IFITEJ (Instituto Federa de Innovación Tecnología y Justicia), Suprema Corte de Buenos Aires con aportes del Ministerio de Justicia de Nación. 
 
-### Premisas del proyecto
+## Premisas del proyecto
 
 - Definir un proceso estándar digital para las provincias JUFEJUS que permita la interoperabilidad digital de procesos.
 - Garantizar la neutralidad tecnológica que permita la independencia de herramientas y políticas de informatización que cada organismo determine.
@@ -29,19 +29,19 @@ El BUS Federal de Justicia fue concebido para integracion e intercambio de docum
 - Colegios Profesionales o entidades no gubernamentales que participen directa o indirectamente del proceso judicial.
 - Empresas privadas que participen directa o indirectamente del proceso judicial.
 
-### Que requisitos debo cumplir ?
+## Que requisitos debo cumplir ?
 
 - Si representas a un Poder Judicial miembro de la Junta Federal de Cortes y Superiores Tribunales de Justicia que adhirio al convenio de Oficios Ley Interjurisdiccionales podes integrar directamente. Solamente tenes que enviar un mail a justiciabus@gmail.com solicitando las credenciales de acceso a la API de Integracion.
 - Si perteneces a un organismo publico o entidad no gubernamental (Colegio Profesional) por favor completa este formulario en linea asi coordinamos una reunion y definimos los alcances de la integracion y te aprovisionamos las credenciales para acceder a la API de integración.
 - Si perteneces a una empresa Privada por favor completa este formulario en linea asi coordinamos una reunion y definimos los alcances de la integracion y te aprovisionamos las credenciales para acceder a la API de integración.
 
-### Que hay en este repositorio ?
+## Que hay en este repositorio ?
 
 En este repositorio vas a poder descargar las librerias de integracion con el BUS Federal de Justicia y codigo de ejemplo sobre como integrarlas a tu sistema de gestion. Actualmente solo tenemos librerias de integracion para C# pero proximamente tendremos disponibles librerias para JAVA, PHP, Python y NodeJS. Hasta tanto tengamos disponibles todas las librerias y si no utilizas C#, podes integrar accediendo directamente a la API REST del BUS.
 
 Para eso tenemos disponible un ambiente de SandBox pensado y desplegado para que todos los interesados puedan desarrollar y probar sus integraciones.
 
-### Como accedo al sandbox del BUS Federal ?
+## Como accedo al sandbox del BUS Federal ?
 
 Una vez que hayas gestionado las credenciales de acceso podes conectarte a la API de integracion en esta URL:  https://api-borde-qa.bus-justicia.org.ar y tambien podes importar las deficiones de OpenAPI desde esta URL https://api-borde-qa.bus-justicia.org.ar/swagger/v1/swagger.json
 
