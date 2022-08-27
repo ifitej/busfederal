@@ -20,7 +20,7 @@ Generado por la Junta Federal de Poderes Judiciales desde el IFITEJ (Instituto F
 - La arquitectura del proyecto permitirá un intercambio digital en forma segura, trazable y auditable de documental en formato digital. Esta plataforma denominada BUS-JUSTICIA permitirá establecer un canal digital seguro entre los organismos participantes. Sobre el BUS-JUSTICIA en diferentes etapas se podrán establecer servicios de intercambio de documentos, expedientes digitales, consumo de servicios de consulta y otros que se diseñen a futuro. 
 - Dicho BUS-JUSTICIA será diseñado por etapas paulatinas de servicios incluidos en la plataforma. Esto permitirá un crecimiento e integración de los organismos participantes del mismo afianzando el uso operativo de los servicios y su mantenimiento. 
 
-### Quienes pueden integrar?
+## Quienes pueden integrar?
 
 El BUS Federal de Justicia fue concebido para integracion e intercambio de documentos electronicos en el marco de los procesos Judiciales, interjurisdiccionales y tambien de alcance local o regional. Pueden integrar:
 
