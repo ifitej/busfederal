@@ -76,6 +76,25 @@ Para usar el BOT podés hacerlo de dos formas, una es enviando un documento elec
 El BOT de documentos también tiene un endpoint REST autenticado que te permite disparar el envío de un documento que no esté relacionado con ninguna transacción previa, para esto podes invocar el método /api/enviar_documento?organismo=[tu_codigo_organismo]&dependencia=[codigo_dependencia] en este caso vas a recibir el ticket de documento enviado inmediatamente.
 La URL del BOT en el ambiente de sandbox para la integración es https://documentbot-qa.bus-justicia.org.ar
 
+## BOT de Documentos Electronicos
+
+
+Este BOT de documentos electronicos tiene como unica funcion la de generar envios y respuestas de documentos electronicos para facilitar las tareas de integracion con el BUS. Hay dos formas de usar este BOT. 
+
+### Solicitar el envio de documentos electronicos
+
+Para solicitar que el BOT te envie un documento electronico de prueba a una dependencia podes invocar el metodo REST autenticado /api/enviar_documento y pasarle como parametros el codigo de organismo y el codigo de dependencia de destino. por ej: **https://documentbot-qa.bus-justicia.org.ar/api/enviar_documento?organismo=[codigo_de_organismo]&dependencia=[codigo_dependencia]** 
+
+### Responder el envio de un documento
+
+Para probar la respuesta a documentos poder enviar un documento electronico al organismo **PDIBFJ-AR-B-PUB** y al codigo de dependencia **echo-1** y en un lapso no mayor a las 30 segundos el BOT te va a generar un documento de respuesta.
+
+### Estado del servicio
+
+Para verificar si el BOT esta funcionando podes invocar el metodo /status/ping y deberia devolverte un mensaje **pong**
+
+La URL del BOT en el ambiente de sandbox es **https://documentbot-qa.bus-justicia.org.ar**  y el mecanismo de autenticacion es el mismo que para la API de borde del BUS
+
 Muchas Gracias.
 El equipo del BUS Federal de Justica
 
