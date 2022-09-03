@@ -40,6 +40,7 @@ El BUS Federal de Justicia fue concebido para integracion e intercambio de docum
 En este repositorio vas a poder descargar las librerias de integracion con el BUS Federal de Justicia y codigo de ejemplo sobre como integrarlas a tu sistema de gestion. Actualmente solo tenemos librerias de integracion para C# pero proximamente tendremos disponibles librerias para JAVA, PHP, Python y NodeJS. Hasta tanto tengamos disponibles todas las librerias y si no utilizas C#, podes integrar accediendo directamente a la API REST del BUS.
 
 Para eso tenemos disponible un ambiente de SandBox pensado y desplegado para que todos los interesados puedan desarrollar y probar sus integraciones.
+Tambien tenemos disponible un grupo de telegram para la comunidad tecnica, la idea es intercambiar ideas respecto de la integracion con el BUS Federal, si tenes Telegram te podes unir con este vinculo [https://t.me/busfederal_tech](https://t.me/busfederal_tech)
 
 ## Como accedo al sandbox del BUS Federal ?
 
@@ -97,4 +98,5 @@ La URL del BOT en el ambiente de sandbox es **https://documentbot-qa.bus-justici
 
 Muchas Gracias.
 El equipo del BUS Federal de Justica
+
 
