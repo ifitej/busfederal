@@ -48,7 +48,7 @@ Una vez que hayas gestionado las credenciales de acceso podes conectarte a la AP
 
 Desde la API de integracion vas a poder acceder a los metodos para la gestion de dependencias de tu organizacion (Altas, Bajas y Modificaciones), envio y recepcion de documentos electronicos y descarga del comprobante de la transaccion realizada.
 
-El organismo principal lo definimos desde el backend del BUS como parte del aprovisionamiento de credenciales.
+El organismo principal lo definimos desde el backend del BUS como parte del aprovisionamiento de credenciales, una vez definido vas a tener la posibilidad de dar de alta tus propias dependencias y de descargarte los datos de los otros organismos y dependencias defiidos en el BUS, todo esto lo vas a poder hacer accedidendo a los metodos de organismos y dependencias de la API del BUS.
 
 # Algunos tips para integrar con el BUS Federal de Justicia
 
