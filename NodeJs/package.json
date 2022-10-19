@@ -1,0 +1,26 @@
+{
+    "name": "nodejs-tdf",
+    "version": "1.0.0",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "axios": "^0.27.2",
+        "dotenv": "^16.0.2",
+        "qs": "^6.11.0",
+        "winston": "^3.8.1"
+    },
+    "description": "",
+    "devDependencies": {
+        "eslint": "^8.23.0",
+        "eslint-config-airbnb-base": "^15.0.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-import": "^2.26.0",
+        "prettier": "^2.7.1"
+    }
+}

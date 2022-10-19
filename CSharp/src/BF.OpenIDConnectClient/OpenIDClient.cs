@@ -1,123 +1,127 @@
 ﻿using BF.Common;
 using IdentityModel.Client;
 using Microsoft.Extensions.Logging;
-using System.Collections.Generic;
+using System;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Net.Http;
-using System.Security.Claims;
 
 namespace BF.OpenIDConnectClient
 {
-	public class OpenIDClient
-	{
-		
-		public string UrlServerBase { get; private set; }
-		private HttpClient _httpClient;
-		private DiscoveryDocumentResponse _document;
-		private TokenResponse _token;
-		private ILogger _logger;
+    public class OpenIDClient
+    {
 
-		public string GrantType { get; private set; } = "client_credentials";
-		public string ClientId { get; set; }
-		public string ClientSecret { get; set; }
-		public OpenIDClient(string server, string clientId, string clientSecret, ILogger logger)
-		{
-			this.UrlServerBase = server;
-			this.ClientId = clientId;
-			this.ClientSecret = clientSecret;
+        public string UrlServerBase { get; private set; }
+        private HttpClient _httpClient;
+        private DiscoveryDocumentResponse _document;
+        private TokenResponse _token;
+        private DateTime _tokenExpiration = DateTime.MinValue;
+        private ILogger _logger;
 
-			_logger = logger;
-			_httpClient = new HttpClient();
+        public string GrantType { get; private set; } = "client_credentials";
+        public string ClientId { get; set; }
+        public string ClientSecret { get; set; }
+        public OpenIDClient(string server, string clientId, string clientSecret, ILogger logger)
+        {
+            this.UrlServerBase = server;
+            this.ClientId = clientId;
+            this.ClientSecret = clientSecret;
 
-			_logger.LogDebug($"... creando OpenIDClient: {server}");
-		}
+            _logger = logger;
+            _httpClient = new HttpClient();
 
-		public ServiceResponse<DiscoveryDocumentResponse> GetDiscoveryDocument()
-		{
-			var sr = new ServiceResponse<DiscoveryDocumentResponse>();
+            _logger.LogDebug($"... creando OpenIDClient: {server}");
+        }
 
-			if (_document == null || _document.IsError)
-			{
-				
-				var taskDisco = _httpClient.GetDiscoveryDocumentAsync(new DiscoveryDocumentRequest 
-				{
-					Address = this.UrlServerBase, 
-					Policy = new DiscoveryPolicy 
-					{
-						RequireHttps = false
-					}
-				});
+        public ServiceResponse<DiscoveryDocumentResponse> GetDiscoveryDocument()
+        {
+            var sr = new ServiceResponse<DiscoveryDocumentResponse>();
 
-				taskDisco.Wait();
+            if (_document == null || _document.IsError)
+            {
 
-				_document = taskDisco.Result;
-			}
+                var taskDisco = _httpClient.GetDiscoveryDocumentAsync(new DiscoveryDocumentRequest
+                {
+                    Address = this.UrlServerBase,
+                    Policy = new DiscoveryPolicy
+                    {
+                        RequireHttps = false
+                    }
+                });
 
-			return new ServiceResponse<DiscoveryDocumentResponse>
-			{ 
-				Data = _document
-			};
-		}
+                taskDisco.Wait();
 
-		public ServiceResponse<TokenResponse> GetToken()
-		{
-			var sr = new ServiceResponse<TokenResponse>();
+                _document = taskDisco.Result;
+            }
 
-			if (_token == null)
-			{				
-				var srDisco = this.GetDiscoveryDocument();
+            return new ServiceResponse<DiscoveryDocumentResponse>
+            {
+                Data = _document
+            };
+        }
 
-				if (!sr.Attach(srDisco).Status)
-					return sr;
+        public ServiceResponse<TokenResponse> GetToken()
+        {
+            var sr = new ServiceResponse<TokenResponse>();
 
-				if (srDisco.Data.IsError)
-					sr.AddError(srDisco.Data.Error);
+            if (_token == null || _tokenExpiration < DateTime.Now)
+            {
+                var srDisco = this.GetDiscoveryDocument();
 
-				if (sr.Status)
-				{
-					var task = _httpClient.RequestTokenAsync(new TokenRequest
-					{
-						Address = srDisco.Data.TokenEndpoint,
-						GrantType = this.GrantType,
-						ClientId = this.ClientId,
-						ClientSecret = this.ClientSecret
-					});
+                if (!sr.Attach(srDisco).Status)
+                    return sr;
 
-					task.Wait();
+                if (srDisco.Data.IsError)
+                    sr.AddError(srDisco.Data.Error);
 
-					var token = task.Result;
+                if (sr.Status)
+                {
+                    var task = _httpClient.RequestTokenAsync(new TokenRequest
+                    {
+                        Address = srDisco.Data.TokenEndpoint,
+                        GrantType = this.GrantType,
+                        ClientId = this.ClientId,
+                        ClientSecret = this.ClientSecret
+                    });
 
-					if (token.IsError)
-						return sr.AddError($"{token.Error}. {token.ErrorDescription}.");
+                    task.Wait();
 
-					_token = token;
+                    var token = task.Result;
 
-					sr.Data = _token;
-				}
-			}
-			else
-			{
-				sr.Data = _token;
-			}
+                    if (token.IsError)
+                        return sr.AddError($"{token.Error}. {token.ErrorDescription}.");
 
-			return sr;
-		}
+                    _token = token;
 
-		public ServiceResponse<JwtSecurityToken> GetLoggedUser()
-		{
-			var sr = new ServiceResponse<JwtSecurityToken>();
-			var srToken = GetToken();
+                    if (token.ExpiresIn > 0)
+                        _tokenExpiration = DateTime.Now + TimeSpan.FromSeconds(token.ExpiresIn - token.ExpiresIn * 0.1);
+                    else
+                        _tokenExpiration = DateTime.Now.AddYears(1);
 
-			if (!sr.Attach(srToken).Status)
-				return sr;
+                    sr.Data = _token;
+                }
+            }
+            else
+            {
+                sr.Data = _token;
+            }
 
-			var token = srToken.Data.AccessToken;
-			var handler = new JwtSecurityTokenHandler();
-			
-			sr.Data = handler.ReadJwtToken(token);
+            return sr;
+        }
 
-			return sr;
-		}
-	}
+        public ServiceResponse<JwtSecurityToken> GetLoggedUser()
+        {
+            var sr = new ServiceResponse<JwtSecurityToken>();
+            var srToken = GetToken();
+
+            if (!sr.Attach(srToken).Status)
+                return sr;
+
+            var token = srToken.Data.AccessToken;
+            var handler = new JwtSecurityTokenHandler();
+
+            sr.Data = handler.ReadJwtToken(token);
+
+            return sr;
+        }
+    }
 }

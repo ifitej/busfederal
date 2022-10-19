@@ -64,7 +64,7 @@ namespace BF.Borde.ApiClient.Modules
 		/// <returns>Tickets encontrado</returns>
 		public ServiceResponse<TicketBuscarResponse> Nuevos()
 		{
-			return this.Api.Post<TicketBuscarResponse>(this.Url(_urlBase + "nuevos"), null);
+			return this.Api.Get<TicketBuscarResponse>(this.Url(_urlBase + "nuevos"));
 		}
 	}
 }
