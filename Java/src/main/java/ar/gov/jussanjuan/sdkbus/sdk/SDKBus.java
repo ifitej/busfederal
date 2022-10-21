@@ -271,7 +271,7 @@ public class SDKBus {
     }
     @RequiresBusLogin
     public BusResponse<DataResponse<Organismo>> findOrganismos(Map<String, String> allRequestParams){
-        UriComponentsBuilder builder = UriComponentsBuilder.fromUriString(environment.getProperty("apiUrl") +"/organismos");
+        UriComponentsBuilder builder = UriComponentsBuilder.fromUriString(environment.getProperty("bus-federal.api-url") +"/organismos");
         Iterator var = allRequestParams.entrySet().iterator();
         while (var.hasNext()){
             Map.Entry<String, String> entry = (Map.Entry)var.next();

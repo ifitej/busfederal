@@ -3,7 +3,7 @@
     <dependency>
         <groupId>ar.gov.jussanjuan</groupId>
         <artifactId>sdkbus</artifactId>
-        <version>0.1.5-SNAPSHOT</version>
+        <version>0.1.6-SNAPSHOT</version>
     </dependency>
 ```
 ## Importar en tu proyecto

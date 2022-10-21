@@ -1,25 +1,6 @@
 spring:
   application:
     name: sanjuan-api
-  jpa:
-    hibernate:
-      ddl-auto: update
-    database: POSTGRESQL
-    generate-ddl: true
-    show-sql: true
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-        format_sql: true
-        jdbc:
-          lob:
-            non_contextual_creation: true
-  datasource:
-    initialization-mode: always
-    platform: postgresql
-    url: jdbc:postgresql://localhost:5432/expedientedb
-    username: postgres
-    password: postgres
   servlet:
     multipart:
       max-file-size: 40MB
