@@ -1,0 +1,10 @@
+# BFBordeModelsApiModelTicketCausaItem
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**nro_causa** | **string** |  | [optional] 
+**dependencia** | [**\Swagger\Client\Model\BFBordeModelsSharedDtosIdentificadorDependenciaDto**](BFBordeModelsSharedDtosIdentificadorDependenciaDto.md) |  | [optional] 
+
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
+
