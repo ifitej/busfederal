@@ -62,7 +62,7 @@ El primer paso consiste en enviarle el documento al BUS para eso vas a invocar e
 Una vez que la transacción hay sido finalizada, ya sea realizando el envío del documento o rechazándolo el BUS va a emitir un TICKET de comprobante de la transacción. Este ticket no es mas que un documento electrónico estructurado en formato JSON que contiene el detalle de los pasos intermedios realizados por el BUS, los hashes de los documentos y estructuras de datos del mensaje enviado y los datos de sellado de la transacción en el Blockchain Federal Argentina, esto ultimo para que en el futuro puedas utilizar los datos del ticket pa ra acreditar que la operación realmente sucedió.
 Para poder finalizar y cerrar la operación de envío, tenes que descargar del BUS un ticket cuyo valor en el campo uuidOperacion coincida con el código uuid que te devolvimos en el paso anterior. Para acceder a los tickets tenes que invocar el método /ticket y pasarle como parámetro el código uuid. Una vez que tengas el ticket, vas a saber si fue exitoso o no y en este ultimo caso vas a tener acceso al motivo del RECHAZO, de una forma u otro ya tenes lo necesario para marcar la transacción como finalizada. En caso de que por algún motivo nunca recibas el ticket, vas a poder usar el código uuid para hacer el reclamo y que nosotros podamos rastrear la transacción.
 
-[![enter image description here]([https://www.bus-justicia.org.ar/images/iconos/logo-busjus.svg)](https://www.bus-justicia.org.ar/images/graficos/bus-flujoEnvioDoc.png)
+[![alt](https://www.bus-justicia.org.ar/images/graficos/bus-flujoEnvioDoc.png?raw=true)
 
 ## Para recibir un documento
 
@@ -80,6 +80,8 @@ Por último, y para que sea más simple la realización de pruebas durante la im
 Para usar el BOT podés hacerlo de dos formas, una es enviando un documento electrónico al código de organismo PDIBFJ-AR-B-PUB y al código de dependencia echo-1, en un lapso no mayor a 30 segundos deberás recibir un ticket de documento electrónico enviado como respuesta al que vos enviaste, en este caso el campo uuid_respuesta del ticket va a coincidir con el código uuid del documento que enviaste originalmente.
 El BOT de documentos también tiene un endpoint REST autenticado que te permite disparar el envío de un documento que no esté relacionado con ninguna transacción previa, para esto podes invocar el método /api/enviar_documento?organismo=[tu_codigo_organismo]&dependencia=[codigo_dependencia] en este caso vas a recibir el ticket de documento enviado inmediatamente.
 La URL del BOT en el ambiente de sandbox para la integración es https://documentbot-qa.bus-justicia.org.ar
+
+[![alt](https://www.bus-justicia.org.ar/images/graficos/bus-flujoProcesaTicket.png?raw=true)
 
 ## BOT de Documentos Electronicos
 
