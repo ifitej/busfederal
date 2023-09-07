@@ -90,7 +90,12 @@ Este BOT de documentos electronicos tiene como unica funcion la de generar envio
 
 ### Solicitar el envio de documentos electronicos
 
-Para solicitar que el BOT te envie un documento electronico de prueba a una dependencia podes invocar el metodo REST autenticado /api/enviar_documento y pasarle como parametros el codigo de organismo y el codigo de dependencia de destino. por ej: **https://documentbot-qa.bus-justicia.org.ar/api/enviar_documento?organismo=[codigo_de_organismo]&dependencia=[codigo_dependencia]** 
+Para solicitar que el BOT te envie un documento electronico de prueba a una dependencia podes invocar el metodo REST autenticado /api/enviar_documento y pasarle como parametros el codigo de organismo y el codigo de dependencia de destino. por ej: **https://documentbot-qa.bus-justicia.org.ar/api/enviar_documento?organismo=[codigo_de_organismo]&dependencia=[codigo_dependencia]&tipo_envio=[tipo_envio]** 
+
+En donde tipo_envio puede ser:
+
+- SIMPLE: Documento principal sin adjuntos
+- CON_ADJUNTO: Documento principal y un documento adjunto
 
 ### Responder el envio de un documento
 
